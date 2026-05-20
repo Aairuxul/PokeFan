@@ -1,7 +1,5 @@
 # Livrable 1 — ComptaCount
 
-> Cadrage du projet fil rouge pour le cours Next.js Avancé (M2 Dev & DevIot).
-
 ---
 
 ## 1. Nom & description
@@ -40,20 +38,9 @@
 9. Page de profil utilisateur (nom, devise par défaut)
 10. Landing page publique + `loading.tsx` + `not-found.tsx` + `error.tsx`
 
-**Hors MVP** (réservés à une V2) :
-- OCR sur photos de tickets
-- Notifications email (rappels de remboursement)
-- Multi-devises avec conversion automatique
-- Dépenses récurrentes (loyer, abonnements)
-- Dark mode
-- Statistiques graphiques par catégorie
-- PWA mobile
-
 ---
 
 ## 4. Backlog initial (priorisé)
-
-> Format standard : **En tant que** [rôle], **je veux** [action], **afin de** [bénéfice].
 
 | ID | Priorité | User story |
 |---|---|---|
@@ -73,13 +60,11 @@
 
 ## 5. Répartition de l'équipe
 
-> *À ajuster selon le nombre de membres effectifs. Hypothèse de départ : 2 ou 3 personnes.*
-
 | Rôle | Personne | Responsabilités semaine 1 |
 |---|---|---|
-| **Lead Tech / Infra** | _Membre 1_ | Setup repo (déjà fait), CI lint, schéma Prisma initial, base PostgreSQL locale, structure `(marketing)` / `(app)`. |
-| **Auth & Backend** | _Membre 2_ | NextAuth (GitHub provider), middleware de protection, modèles `User` / `Group` / `Membership` / `Expense`, Server Action `createGroup`. |
-| **UI & Features** | _Membre 3_ | Layout racine + sidebar `(app)`, page `/groups`, page `/groups/[id]`, formulaire d'ajout de dépense (Server Action `createExpense`), `loading.tsx` et `error.tsx`. |
+| **Lead Tech / Infra** | Matteo | Setup repo (déjà fait), CI lint, schéma Prisma initial, base PostgreSQL locale, structure `(marketing)` / `(app)`. |
+| **Auth & Backend** | Enzo | NextAuth (GitHub provider), middleware de protection, modèles `User` / `Group` / `Membership` / `Expense`, Server Action `createGroup`. |
+| **UI & Features** | Tommy et Valentin | Layout racine + sidebar `(app)`, page `/groups`, page `/groups/[id]`, formulaire d'ajout de dépense (Server Action `createExpense`), `loading.tsx` et `error.tsx`. |
 
 **Conventions transverses :**
 - Toutes les PR sont review par au moins 1 autre membre avant merge.

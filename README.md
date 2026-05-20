@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ComptaCount
 
-## Getting Started
+Application web qui permet à un groupe d'amis ou de colocs de **suivre et équilibrer leurs dépenses partagées** (voyages, colocs, événements), avec proposition automatique du minimum de remboursements à effectuer.
 
-First, run the development server:
+> Projet fil rouge du cours **Next.js Avancé · M2 Dev & DevIot**.
+
+---
+
+## Stack
+
+- **Framework** : Next.js 16 (App Router)
+- **Langage** : TypeScript (strict)
+- **UI** : React 19, Tailwind CSS 4
+- **Qualité** : ESLint, Prettier
+- **Auth (prévu)** : NextAuth
+- **DB (prévu)** : PostgreSQL + Prisma
+
+---
+
+## Getting started
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Copier les variables d'environnement
+cp .env.example .env.local
+
+# Lancer le serveur de dev
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+L'application est accessible sur [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Documentation
 
-## Learn More
+- [Livrable 1 — Cadrage du projet](./docs/livrable-1.md) — description, 6 contraintes, MVP, backlog, répartition.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Workflow Git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `main` : branche de production.
+- `develop` : branche d'intégration.
+- Toute nouvelle feature passe par une branche `feat/...` puis une PR vers `develop`.
+- Conventions de commit : [Conventional Commits](https://www.conventionalcommits.org/).

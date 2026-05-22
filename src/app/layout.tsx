@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import NavMenue from "./(components)/navmenue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -66,7 +67,7 @@ const menuLayout = ({ children }: { children: React.ReactNode }) => {
           </ul>
         </nav>
       </aside>
-      <main className="flex-1 p-6 bg-[var(--background)] text-[var(--foreground)]">{children}</main>
+      <main className="flex-1 p-6 bg-[var(--background)] text-[var(--foreground)]"><NavMenue />{children}</main>
     </div>
   );
 };

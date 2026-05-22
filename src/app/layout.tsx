@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavMenue from "./(components)/navmenue";
+import NavMenue from "../components/navmenue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +31,18 @@ const menuLayout = ({ children }: { children: React.ReactNode }) => {
               </a>
             </li>
             <li className="mb-2">
-              <a href="/profile" className="block py-2 px-4 rounded hover:bg-gray-700">
+              <a
+                href="/profile"
+                className="block py-2 px-4 rounded hover:bg-gray-700"
+              >
                 Profile
               </a>
             </li>
             <li className="mb-2">
-              <a href="/settings" className="block py-2 px-4 rounded hover:bg-gray-700">
+              <a
+                href="/settings"
+                className="block py-2 px-4 rounded hover:bg-gray-700"
+              >
                 Settings
               </a>
             </li>
@@ -67,7 +73,10 @@ const menuLayout = ({ children }: { children: React.ReactNode }) => {
           </ul>
         </nav>
       </aside>
-      <main className="flex-1 bg-[var(--background)] text-[var(--foreground)]"><NavMenue />{children}</main>
+      <main className="flex-1 bg-[var(--background)] text-[var(--foreground)]">
+        <NavMenue />
+        {children}
+      </main>
     </div>
   );
 };

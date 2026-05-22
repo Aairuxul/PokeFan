@@ -1,7 +1,6 @@
-export default async function getPokemonTypes() {
-    const res = await fetch('https://pokeapi.co/api/v2/type');
-    const data = await res.json();
-
+import { getPokemonTypes } from "../(services)/pokemonAPI";
+export default async function PokemonTypeList() {
+    const data = await getPokemonTypes();
     return (
     <ul>
         {data.results.map((type: any) => (

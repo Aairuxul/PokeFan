@@ -1,9 +1,9 @@
-import { getPokemonTypes } from "../(services)/pokemonAPI";
+import { getPokemonTypes } from "../../services/pokemonAPI";
 export default async function PokemonTypeList() {
-    const data = await getPokemonTypes();
+    const types = await getPokemonTypes();
     return (
     <ul>
-        {data.results.map((type: any) => (
+        {types.map((type: any) => (
             <li key={type.name}>{type.name}</li>
         ))}
     </ul>

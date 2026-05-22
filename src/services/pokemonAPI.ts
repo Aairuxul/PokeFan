@@ -35,3 +35,9 @@ export async function getPokemonTypes() {
     (type) => type.name !== "Unknown" && type.name !== "Shadow"
   );
 }
+
+export async function getPicturePokemon(id: number){
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+    return res.ok ? await res.json() : null;
+}

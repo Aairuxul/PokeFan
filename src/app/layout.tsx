@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavMenue from "../components/navmenue";
+import Link from "next/link";
+import NavMenue from "@/components/navmenue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,49 +27,48 @@ const menuLayout = ({ children }: { children: React.ReactNode }) => {
         <nav>
           <ul>
             <li className="mb-2">
-              <a href="/" className="block py-2 px-4 rounded hover:bg-gray-700">
+              <Link href="/" className="block py-2 px-4 rounded hover:bg-gray-700">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="mb-2">
-              <a
-                href="/profile"
-                className="block py-2 px-4 rounded hover:bg-gray-700"
-              >
+              <Link href="/profile" className="block py-2 px-4 rounded hover:bg-gray-700">
                 Profile
-              </a>
+              </Link>
+            </li>           
+             <li className="mb-2">
+              <Link href="/register" className="block py-2 px-4 rounded hover:bg-gray-700">
+                Register
+              </Link>
             </li>
             <li className="mb-2">
-              <a
-                href="/settings"
-                className="block py-2 px-4 rounded hover:bg-gray-700"
-              >
+              <Link href="/settings" className="block py-2 px-4 rounded hover:bg-gray-700">
                 Settings
-              </a>
+              </Link>
             </li>
             <li className="mb-2">
-              <a
+              <Link
                 href="/users"
                 className="block py-2 px-4 rounded hover:bg-gray-700"
               >
                 Users
-              </a>
+              </Link>
             </li>
             <li className="mb-2">
-              <a
+              <Link
                 href="/test"
                 className="block py-2 px-4 rounded hover:bg-gray-700"
               >
                 Test id
-              </a>
+              </Link>
             </li>
             <li className="mb-2">
-              <a
+              <Link
                 href="/pokemonTypes"
                 className="block py-2 px-4 rounded hover:bg-gray-700"
               >
                 Pokemon
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

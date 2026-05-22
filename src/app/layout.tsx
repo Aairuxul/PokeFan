@@ -55,6 +55,14 @@ const menuLayout = ({ children }: { children: React.ReactNode }) => {
                 Test id
               </a>
             </li>
+            <li className="mb-2">
+              <a
+                href="/pokemonTypes"
+                className="block py-2 px-4 rounded hover:bg-gray-700"
+              >
+                Pokemon
+              </a>
+            </li>
           </ul>
         </nav>
       </aside>

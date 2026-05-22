@@ -1,4 +1,4 @@
-import { getPicturePokemon } from "../(services)/pokemonAPI";
+import { getPicturePokemon } from "@/services/pokemonAPI";
 
 async function NavMenue() {
   let randomNumber = Math.floor(Math.random() * 100) + 1;

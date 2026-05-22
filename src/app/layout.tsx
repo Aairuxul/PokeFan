@@ -67,7 +67,7 @@ const menuLayout = ({ children }: { children: React.ReactNode }) => {
           </ul>
         </nav>
       </aside>
-      <main className="flex-1 p-6 bg-[var(--background)] text-[var(--foreground)]"><NavMenue />{children}</main>
+      <main className="flex-1 bg-[var(--background)] text-[var(--foreground)]"><NavMenue />{children}</main>
     </div>
   );
 };

@@ -1,6 +1,9 @@
+import { getPicturePokemon } from "../(services)/pokemonAPI";
+
 async function NavMenue() {
     let randomNumber = Math.floor(Math.random() * 100) + 1;
-    let profilePicture = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`).then(res => res.json());
+
+    let profilePicture = await getPicturePokemon(randomNumber);
   return (
     <nav className="w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4">
       <div className="text-lg font-bold"></div>
@@ -8,7 +11,7 @@ async function NavMenue() {
         <li><a href="/" className="hover:text-gray-400">Compta</a></li>
       </ul>
       <div>
-        <img src={profilePicture.sprites.front_default} alt="Profile" className="w-8 h-8 rounded-full" />
+        {profilePicture && <img src={profilePicture.sprites.front_default} alt="Profile" className="w-8 h-8 rounded-full" />}
       </div>
     </nav>
   )

@@ -12,6 +12,7 @@ Application web qui permet à un groupe d'amis ou de colocs de **suivre et équi
 - **Langage** : TypeScript (strict)
 - **UI** : React 19, Tailwind CSS 4
 - **Qualité** : ESLint, Prettier
+- **Gestionnaire de paquets** : pnpm
 - **Auth (prévu)** : NextAuth
 - **DB (prévu)** : PostgreSQL + Prisma
 
@@ -19,15 +20,17 @@ Application web qui permet à un groupe d'amis ou de colocs de **suivre et équi
 
 ## Getting started
 
+> Ce projet utilise **pnpm**. Avec [Corepack](https://nodejs.org/api/corepack.html) (`corepack enable`), la version déclarée dans `package.json` est utilisée automatiquement.
+
 ```bash
 # Installer les dépendances
-npm install
+pnpm install
 
 # Copier les variables d'environnement
 cp .env.example .env.local
 
 # Lancer le serveur de dev
-npm run dev
+pnpm dev
 ```
 
 L'application est accessible sur [http://localhost:3000](http://localhost:3000).

@@ -5,8 +5,8 @@ Une tâche (user story / issue) n'est considérée comme **terminée** que si **
 ## Code
 
 - [ ] La fonctionnalité répond à la user story et à ses critères d'acceptation.
-- [ ] Le projet compile sans erreur (`npm run build`).
-- [ ] `npm run lint` ne remonte aucune erreur.
+- [ ] Le projet compile sans erreur (`pnpm build`).
+- [ ] `pnpm lint` ne remonte aucune erreur.
 - [ ] TypeScript en mode strict : pas de `any` implicite ni de `@ts-ignore` non justifié.
 - [ ] Aucun secret commité — les variables sensibles passent par `.env.local`.
 

@@ -1,28 +1,12 @@
-import { getPicturePokemon } from "@/services/pokemonAPI";
+import Link from "next/link";
 
-async function NavMenue() {
-  let randomNumber = Math.floor(Math.random() * 100) + 1;
-
-  let profilePicture = await getPicturePokemon(randomNumber);
+function NavMenue() {
   return (
-    <nav className="w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4">
-      <div className="text-lg font-bold"></div>
-      <ul className="flex space-x-4">
-        <li>
-          <a href="/" className="hover:text-gray-400">
-            Compta
-          </a>
-        </li>
-      </ul>
-      <div>
-        {profilePicture && (
-          <img
-            src={profilePicture.sprites.front_default}
-            alt="Profile"
-            className="w-8 h-8 rounded-full"
-          />
-        )}
-      </div>
+    <nav className="flex h-16 w-full items-center justify-between bg-gray-800 px-4 text-white">
+      <Link href="/" className="text-lg font-bold hover:text-gray-300">
+        ComptaCount
+      </Link>
+      <span className="text-sm text-gray-400">Phase 1 — Fondations</span>
     </nav>
   );
 }

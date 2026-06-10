@@ -1,15 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import NavMenu from "@/components/navmenu";
-
+import {getServerSession} from "next-auth/next"
+import {redirect} from "next/navigation"
+import { useSession } from "next-auth/react";
 const navItems = [
   { href: "/", label: "Dashboard" },
   { href: "/users", label: "Utilisateurs" },
   { href: "/register", label: "Inscription" },
   { href: "/pokemonTypes", label: "Types Pokémon" },
-  { href: "/test", label: "Test routing" },
-];
+  { href: "/test", label: "Test routing" }
 
+];
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const { data: session } = useSession();
+
   return (
     <div className="flex h-screen">
       <aside className="w-64 bg-gray-900 p-4 text-white">
@@ -26,6 +32,26 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </li>
             ))}
+
+            {!session ? (
+              <li>
+                <Link
+                  href="/api/auth/signin"
+                  className="block rounded px-4 py-2 hover:bg-gray-700"
+                >
+                  Connexion
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  href="/api/auth/signout"
+                  className="block rounded px-4 py-2 hover:bg-gray-700"
+                >
+                  Déconnexion
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </aside>

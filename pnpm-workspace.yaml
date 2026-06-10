@@ -1,0 +1,8 @@
+# Réglages pnpm (depuis pnpm 10/11, ce fichier remplace le champ "pnpm" de package.json).
+# Autorise l'exécution des scripts de build de ces dépendances natives,
+# bloqués par défaut par pnpm pour des raisons de sécurité.
+# - sharp : binaire natif d'optimisation d'images (next/image)
+# - unrs-resolver : résolveur natif utilisé par eslint-config-next
+allowBuilds:
+  sharp: true
+  unrs-resolver: true

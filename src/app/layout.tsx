@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ComptaCount",
+  title: "PokéFan",
   description:
-    "Suivi et équilibrage des dépenses partagées entre amis et colocataires.",
+    "Le site préféré des gros kiffeurs de pokémon (respectueusement).",
 };
 
 export default function RootLayout({

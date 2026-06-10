@@ -1,4 +1,4 @@
-# Definition of Done — ComptaCount
+# Definition of Done — PokéFan
 
 Une tâche (user story / issue) n'est considérée comme **terminée** que si **tous** les critères ci-dessous sont remplis.
 

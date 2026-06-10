@@ -1,8 +1,9 @@
 # PokéFan
 
 Application web qui permet la liste des pokemons et de leur types.
-* L'application nécéssite une connexion a GitHub pour profiter de toutes les fonctions proposées.
-* Elle utilise l'API pokeAPI afin de récupérer les différentes informations liées a Pokémon.
+
+- L'application nécéssite une connexion a GitHub pour profiter de toutes les fonctions proposées.
+- Elle utilise l'API pokeAPI afin de récupérer les différentes informations liées a Pokémon.
 
 > Projet du cours **Next.js Avancé · M2 Dev & DevIot**.
 
@@ -49,11 +50,11 @@ L'application est accessible sur [http://localhost:3000](http://localhost:3000).
 
 Le projet utilise le modèle de cache « classique » de Next.js 16 (sans le flag `cacheComponents`).
 
-| Donnée | Route | Type de cache | Durée (`revalidate`) | Tags | Justification |
-|---|---|---|---|---|---|
-| Liste des types — `getPokemonTypes()` | `/pokemonTypes` | ISR (cache + revalidation temporelle) | `86400` s (24 h) | `pokemon-types` | Les types Pokémon sont quasi immuables ; on sert le cache et on rafraîchit une fois par jour. |
-| Détail d'un type — `getPokemonType(id)` | `/pokemonTypes/[id]` | ISR | `86400` s (24 h) | `pokemon-types`, `pokemon-type-${id}` | Même donnée stable ; un tag par `id` autorise une invalidation ciblée. |
-| Liste des utilisateurs | `/users` | Statique + revalidation on-demand | — | — | Rendue statiquement puis invalidée après chaque inscription. |
+| Donnée                                  | Route                | Type de cache                         | Durée (`revalidate`) | Tags                                  | Justification                                                                                 |
+| --------------------------------------- | -------------------- | ------------------------------------- | -------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Liste des types — `getPokemonTypes()`   | `/pokemonTypes`      | ISR (cache + revalidation temporelle) | `86400` s (24 h)     | `pokemon-types`                       | Les types Pokémon sont quasi immuables ; on sert le cache et on rafraîchit une fois par jour. |
+| Détail d'un type — `getPokemonType(id)` | `/pokemonTypes/[id]` | ISR                                   | `86400` s (24 h)     | `pokemon-types`, `pokemon-type-${id}` | Même donnée stable ; un tag par `id` autorise une invalidation ciblée.                        |
+| Liste des utilisateurs                  | `/users`             | Statique + revalidation on-demand     | —                    | —                                     | Rendue statiquement puis invalidée après chaque inscription.                                  |
 
 ### Revalidation
 

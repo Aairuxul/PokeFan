@@ -6,7 +6,7 @@ function NavMenu() {
   return (
     <nav className="flex h-16 w-full items-center justify-between bg-gray-800 px-4 text-white">
       <Link href="/" className="text-lg font-bold hover:text-gray-300">
-        ComptaCount
+        PokéFan
       </Link>
       <div className="flex space-x-4">
         <Image src={useSession().data?.user?.image || "/default-avatar.png"} alt="user picture" width={32} height={32} />

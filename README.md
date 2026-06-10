@@ -71,3 +71,12 @@ Le projet utilise le modèle de cache « classique » de Next.js 16 (sans le fla
 - `develop` : branche d'intégration.
 - Toute nouvelle feature passe par une branche `feat/...` puis une PR vers `develop`.
 - Conventions de commit : [Conventional Commits](https://www.conventionalcommits.org/).
+
+
+## Score lighthouse
+
+Ici vous pouvez visualiser le score lightHouse avant d'intégrer les images 
+![score lighthouse pré images](/preuves/lighthouse-preImages.png "score parfait")
+
+Et maintenant le score apres ajout d'images :
+![score lighthouse post images](/preuves/lighthouse-postImages.png "score parfait").

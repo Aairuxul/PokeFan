@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import NavMenu from "@/components/navmenu";
+import {getServerSession} from "next-auth/next"
+import {redirect} from "next/navigation"
 import { useSession } from "next-auth/react";
 const navItems = [
   { href: "/", label: "Dashboard" },

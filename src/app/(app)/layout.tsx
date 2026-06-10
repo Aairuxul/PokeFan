@@ -18,7 +18,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-screen">
       <aside className="w-64 bg-gray-900 p-4 text-white">
-        <h2 className="mb-4 text-2xl font-bold">ComptaCount</h2>
+        <h2 className="mb-4 text-2xl font-bold">PokéFan</h2>
         <nav>
           <ul>
             {navItems.map(item => (

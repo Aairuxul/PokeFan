@@ -20,64 +20,81 @@ function frenchName(names: PokeApiName[], fallback: string): string {
 }
 
 export async function getPokemonTypes(): Promise<PokemonType[]> {
-  const res = await fetch(`${POKEAPI_BASE}/type`, {
-    next: { revalidate: REVALIDATE_SECONDS, tags: ["pokemon-types"] },
-  });
+  try {
+    const res = await fetch(`${POKEAPI_BASE}/type`, {
+      next: { revalidate: REVALIDATE_SECONDS, tags: ["pokemon-types"] },
+    });
 
-  if (!res.ok) {
-    throw new Error("Échec du chargement des types Pokémon");
+    if (!res.ok) {
+      console.error("getPokemonTypes: non-ok response", res.status);
+      return [];
+    }
+
+    const data: { results: PokeApiResource[] } = await res.json();
+
+    // Les détails de chaque type sont récupérés en parallèle.
+    const types = await Promise.all(
+      data.results.map(async type => {
+        try {
+          const typeRes = await fetch(type.url, {
+            next: { revalidate: REVALIDATE_SECONDS, tags: ["pokemon-types"] },
+          });
+          if (!typeRes.ok) return null;
+          const typeData: { id: number; name: string; names: PokeApiName[] } =
+            await typeRes.json();
+          return {
+            id: typeData.id,
+            name: frenchName(typeData.names, typeData.name),
+          };
+        } catch (err) {
+          console.error("getPokemonTypes: failed to fetch type detail", err);
+          return null;
+        }
+      })
+    );
+
+    return types
+      .filter((t): t is PokemonType => t !== null)
+      .filter(t => t.name !== "Unknown" && t.name !== "Shadow");
+  } catch (err) {
+    console.error("getPokemonTypes: fetch error", err);
+    return [];
   }
-
-  const data: { results: PokeApiResource[] } = await res.json();
-
-  // Les détails de chaque type sont récupérés en parallèle.
-  const types = await Promise.all(
-    data.results.map(async type => {
-      const typeRes = await fetch(type.url, {
-        next: { revalidate: REVALIDATE_SECONDS, tags: ["pokemon-types"] },
-      });
-      if (!typeRes.ok) return null;
-      const typeData: { id: number; name: string; names: PokeApiName[] } =
-        await typeRes.json();
-      return {
-        id: typeData.id,
-        name: frenchName(typeData.names, typeData.name),
-      };
-    })
-  );
-
-  return types
-    .filter((t): t is PokemonType => t !== null)
-    .filter(t => t.name !== "Unknown" && t.name !== "Shadow");
 }
 
 export async function getPokemonType(
   id: string
 ): Promise<PokemonTypeDetail | null> {
-  const res = await fetch(`${POKEAPI_BASE}/type/${id}`, {
-    next: {
-      revalidate: REVALIDATE_SECONDS,
-      tags: ["pokemon-types", `pokemon-type-${id}`],
-    },
-  });
+  try {
+    const res = await fetch(`${POKEAPI_BASE}/type/${id}`, {
+      next: {
+        revalidate: REVALIDATE_SECONDS,
+        tags: ["pokemon-types", `pokemon-type-${id}`],
+      },
+    });
 
-  if (res.status === 404) return null;
-  if (!res.ok) {
-    throw new Error(`Échec du chargement du type Pokémon « ${id} »`);
+    if (res.status === 404) return null;
+    if (!res.ok) {
+      console.error(`getPokemonType: non-ok response for ${id}`, res.status);
+      return null;
+    }
+
+    const data: {
+      id: number;
+      name: string;
+      names: PokeApiName[];
+      pokemon: { pokemon: PokeApiResource }[];
+    } = await res.json();
+
+    return {
+      id: data.id,
+      name: frenchName(data.names, data.name),
+      pokemons: data.pokemon.map(p => p.pokemon.name),
+    };
+  } catch (err) {
+    console.error(`getPokemonType: fetch error for ${id}`, err);
+    return null;
   }
-
-  const data: {
-    id: number;
-    name: string;
-    names: PokeApiName[];
-    pokemon: { pokemon: PokeApiResource }[];
-  } = await res.json();
-
-  return {
-    id: data.id,
-    name: frenchName(data.names, data.name),
-    pokemons: data.pokemon.map(p => p.pokemon.name),
-  };
 }
 
 export async function createPokemonType(name: string): Promise<PokemonType> {

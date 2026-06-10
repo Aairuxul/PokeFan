@@ -1,8 +1,10 @@
-# ComptaCount
+# PokéFan
 
-Application web qui permet à un groupe d'amis ou de colocs de **suivre et équilibrer leurs dépenses partagées** (voyages, colocs, événements), avec proposition automatique du minimum de remboursements à effectuer.
+Application web qui permet la liste des pokemons et de leur types.
+* L'application nécéssite une connexion a GitHub pour profiter de toutes les fonctions proposées.
+* Elle utilise l'API pokeAPI afin de récupérer les différentes informations liées a Pokémon.
 
-> Projet fil rouge du cours **Next.js Avancé · M2 Dev & DevIot**.
+> Projet du cours **Next.js Avancé · M2 Dev & DevIot**.
 
 ---
 
@@ -11,10 +13,9 @@ Application web qui permet à un groupe d'amis ou de colocs de **suivre et équi
 - **Framework** : Next.js 16 (App Router)
 - **Langage** : TypeScript (strict)
 - **UI** : React 19, Tailwind CSS 4
-- **Qualité** : ESLint, Prettier
+- **Qualité** : ESLint, Prettier, Zod
 - **Gestionnaire de paquets** : pnpm
-- **Auth (prévu)** : NextAuth
-- **DB (prévu)** : PostgreSQL + Prisma
+- **Auth** : NextAuth
 
 ---
 
@@ -26,7 +27,7 @@ Application web qui permet à un groupe d'amis ou de colocs de **suivre et équi
 # Installer les dépendances
 pnpm install
 
-# Copier les variables d'environnement
+# Copier les variables d'environnement et remplir les variables
 cp .env.example .env.local
 
 # Lancer le serveur de dev
@@ -39,14 +40,14 @@ L'application est accessible sur [http://localhost:3000](http://localhost:3000).
 
 ## Documentation
 
-- [Livrable 1 — Cadrage du projet](./docs/livrable-1.md) — description, 6 contraintes, MVP, backlog, répartition.
+- [Livrable 1 — Cadrage du projet](./docs/livrable-1.md) — description, 6 contraintes, MVP, backlog, répartition initiale.
 - [Definition of Done](./docs/definition-of-done.md) — critères de complétion d'une tâche.
 
 ---
 
 ## Stratégie de cache et revalidation
 
-Le projet utilise le modèle de cache « classique » de Next.js 16 (sans le flag `cacheComponents`). Rappel : depuis Next.js 15, `fetch` n'est **pas** mis en cache par défaut — chaque appel choisit explicitement sa stratégie via `next: { revalidate, tags }`.
+Le projet utilise le modèle de cache « classique » de Next.js 16 (sans le flag `cacheComponents`).
 
 | Donnée | Route | Type de cache | Durée (`revalidate`) | Tags | Justification |
 |---|---|---|---|---|---|

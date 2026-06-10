@@ -7,7 +7,7 @@ const navItems = [
   { href: "/register", label: "Inscription" },
   { href: "/pokemonTypes", label: "Types Pokémon" },
   { href: "/test", label: "Test routing" },
-  { href: "/auth/signin", label: "Connexion" },
+  { href: "/api/auth/signin", label: "Connexion" },
 ];
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {

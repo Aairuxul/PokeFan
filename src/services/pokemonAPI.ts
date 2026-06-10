@@ -79,3 +79,18 @@ export async function getPokemonType(
     pokemons: data.pokemon.map(p => p.pokemon.name),
   };
 }
+
+export async function createPokemonType(name: string): Promise<PokemonType> {
+  const types = await getPokemonTypes();
+
+  if (!name) {
+    throw new Error('Le nom du type de Pokémon est requis.');
+  }
+
+  const newType: PokemonType = {
+    id: types.length + 1,
+    name,
+  };
+
+  return newType;
+}

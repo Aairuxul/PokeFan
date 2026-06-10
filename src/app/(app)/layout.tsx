@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import NavMenu from "@/components/navmenu";
-import {getServerSession} from "next-auth/next"
-import {redirect} from "next/navigation"
 import { useSession } from "next-auth/react";
+
 const navItems = [
   { href: "/", label: "Dashboard" },
   { href: "/users", label: "Utilisateurs" },
   { href: "/register", label: "Inscription" },
   { href: "/pokemonTypes", label: "Types Pokémon" },
   { href: "/test", label: "Test routing" }
-
 ];
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
 

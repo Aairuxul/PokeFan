@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NavMenue from "@/components/navmenue";
+import NavMenu from "@/components/navmenu";
 
 const navItems = [
   { href: "/", label: "Dashboard" },
@@ -30,7 +30,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </nav>
       </aside>
       <main className="flex flex-1 flex-col bg-[var(--background)] text-[var(--foreground)]">
-        <NavMenue />
+        <NavMenu />
         {children}
       </main>
     </div>

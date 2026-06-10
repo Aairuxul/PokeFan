@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from 'next/image';
+import { useSession } from "next-auth/react";
 
 function NavMenu() {
   return (
@@ -6,6 +8,10 @@ function NavMenu() {
       <Link href="/" className="text-lg font-bold hover:text-gray-300">
         ComptaCount
       </Link>
+      <div className="flex space-x-4">
+        <Image src={useSession().data?.user?.image || "/default-avatar.png"} alt="user picture" width={32} height={32} />
+        <span className="text-sm">{useSession().data?.user?.name || "Guest"}</span>
+      </div>
     </nav>
   );
 }

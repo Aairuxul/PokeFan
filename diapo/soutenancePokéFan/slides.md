@@ -4,13 +4,13 @@ title: PokéFan - Next.js Avancé
 info: |
   ## PokéFan
   Application web pour explorer les types Pokémon avec authentification GitHub
-  Master 2 Dev & DevIoT - Next.js Avancé - Phase 3
+  Master 2 Dev & DevIoT - Next.js Avancé
 layout: cover
 ---
 
 # PokéFan
 
-**Next.js Avancé · Master 2 Dev & DevIoT — Phase 3**
+**Next.js Avancé · Master 2 Dev & DevIoT**
 
 Application web pour explorer les types Pokémon et gérer les utilisateurs (fourre tout de test pour nextJS)
 
@@ -166,8 +166,8 @@ La liste des utilisateurs se met à jour immédiatement
 ### Protection des features
 ```typescript
 // Accessible après authentification
-<Link href="/register">
-  Créer un compte
+<Link href="/user">
+  Utilisateurs
 </Link>
 
 // Vérification de session

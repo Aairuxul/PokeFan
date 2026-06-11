@@ -1,6 +1,6 @@
 // Durée de revalidation ISR : les types Pokémon changent très rarement,
 // on peut donc servir la donnée en cache pendant 24 h. Voir README (stratégie de cache).
-const REVALIDATE_SECONDS = 60 * 60 * 24; // 24 heures
+const REVALIDATE_SECONDS = 60 * 60 * 24;
 const POKEAPI_BASE = "https://pokeapi.co/api/v2";
 
 type PokeApiName = { language: { name: string }; name: string };

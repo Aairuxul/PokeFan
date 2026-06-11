@@ -10,7 +10,7 @@ export async function PokemonTypeListContent() {
         <li key={type.id}>
           <Link
             href={`/pokemonTypes/${type.id}`}
-            className="inline-block rounded px-3 py-1 hover:bg-gray-100 hover:underline"
+            className="inline-block rounded px-3 py-1 hover:underline"
           >
             {type.name}
           </Link>

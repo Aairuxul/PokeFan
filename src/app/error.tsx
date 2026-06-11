@@ -17,7 +17,7 @@ export default function Error({
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-8 text-center">
       <span className="select-none text-7xl">⚠️</span>
       <h1 className="text-3xl font-bold">Une erreur est survenue</h1>
-      <p className="max-w-md text-gray-500">
+      <p className="max-w-md text-gray-400">
         Une erreur inattendue s&apos;est produite. Vous pouvez réessayer ou
         contacter le support si le problème persiste.
       </p>

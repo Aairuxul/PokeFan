@@ -19,7 +19,7 @@ export default function UsersError({
       <h2 className="text-2xl font-bold">
         Erreur dans la section Utilisateurs
       </h2>
-      <p className="max-w-md text-center text-gray-500">
+      <p className="max-w-md text-center text-gray-400">
         Impossible de charger les données utilisateurs. Vérifiez votre connexion
         ou réessayez dans quelques instants.
       </p>

@@ -19,7 +19,7 @@ export default function PokemonTypesError({
       <h2 className="text-xl font-bold">
         Impossible de charger les types Pokémon
       </h2>
-      <p className="max-w-md text-sm text-gray-500">{error.message}</p>
+      <p className="max-w-md text-sm text-gray-400">{error.message}</p>
       <button
         onClick={() => unstable_retry()}
         className="cursor-pointer rounded-lg bg-gray-800 px-5 py-2 font-medium text-white hover:bg-gray-700"

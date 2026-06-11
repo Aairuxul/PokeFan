@@ -11,7 +11,7 @@ export default async function TestRoutePage({
     return (
       <div className="p-8">
         <h1 className="text-2xl font-bold">Démo de routing dynamique</h1>
-        <p className="mt-2 text-gray-500">
+        <p className="mt-2 text-gray-400">
           Route optionnelle attrape-tout <code>[[...slug]]</code>. Essayez :
         </p>
         <ul className="mt-2 flex flex-col gap-1">

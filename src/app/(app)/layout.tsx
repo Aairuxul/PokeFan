@@ -2,24 +2,23 @@
 
 import Link from "next/link";
 import NavMenu from "@/components/navmenu";
-import {getServerSession} from "next-auth/next"
-import {redirect} from "next/navigation"
 import { useSession } from "next-auth/react";
+
 const navItems = [
   { href: "/", label: "Dashboard" },
   { href: "/users", label: "Utilisateurs" },
   { href: "/register", label: "Inscription" },
   { href: "/pokemonTypes", label: "Types Pokémon" },
   { href: "/test", label: "Test routing" }
-
 ];
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
 
   return (
     <div className="flex h-screen">
       <aside className="w-64 bg-gray-900 p-4 text-white">
-        <h2 className="mb-4 text-2xl font-bold">ComptaCount</h2>
+        <h2 className="mb-4 text-2xl font-bold">PokéFan</h2>
         <nav>
           <ul>
             {navItems.map(item => (

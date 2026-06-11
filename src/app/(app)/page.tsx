@@ -4,8 +4,8 @@ export default function Home() {
   return (
     <div className="p-8">
       <h1 className="mb-2 text-3xl font-bold">Tableau de bord</h1>
-      <p className="mb-6 text-gray-500">
-        ComptaCount — suivi et équilibrage des dépenses partagées.
+      <p className="mb-6 text-gray-400">
+        PokéFan — Les infos des pokémons pour les PROS.
       </p>
       <ul className="flex flex-col gap-2">
         <li>

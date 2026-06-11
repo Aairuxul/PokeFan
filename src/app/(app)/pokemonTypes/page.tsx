@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getPokemonTypes } from "@/services/pokemonAPI";
 
+export const dynamic = "force-dynamic";
+
 export default async function PokemonTypeList() {
   const types = await getPokemonTypes();
 

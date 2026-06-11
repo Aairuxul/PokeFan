@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPokemonType } from "@/services/pokemonAPI";
 
+export const dynamic = "force-dynamic";
+
 export default async function PokemonTypeDetailPage({
   params,
 }: {

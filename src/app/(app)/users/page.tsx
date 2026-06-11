@@ -11,7 +11,7 @@ export default function UsersPage() {
         {users.map(user => (
           <li key={user.id} className="rounded border px-4 py-2">
             <span className="font-medium">{user.username}</span>{" "}
-            <span className="text-sm text-gray-500">{user.email}</span>
+            <span className="text-sm text-gray-400">{user.email}</span>
           </li>
         ))}
       </ul>

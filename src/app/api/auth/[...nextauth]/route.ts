@@ -8,15 +8,20 @@ const handler = NextAuth({
       clientSecret: process.env.GITHUB_SECRET!,
     }),
   ],
-    callbacks: {
-      async jwt({ token, account, session }) {
-        if (account) {
-          token.accessToken = account.access_token
-          session.accessToken = token.accessToken
-        }
-        return token
-      },
-  }
+  callbacks: {
+    async jwt({ token, account }) {
+      if (account) {
+        token.accessToken = account.access_token
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.accessToken = token.accessToken
+      }
+      return session
+    },
+  },
 })
 
 export { handler as GET, handler as POST }

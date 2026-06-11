@@ -72,11 +72,35 @@ Le projet utilise le modèle de cache « classique » de Next.js 16 (sans le fla
 - Toute nouvelle feature passe par une branche `feat/...` puis une PR vers `develop`.
 - Conventions de commit : [Conventional Commits](https://www.conventionalcommits.org/).
 
-
 ## Score lighthouse
 
-Ici vous pouvez visualiser le score lightHouse avant d'intégrer les images 
+Ici vous pouvez visualiser le score lightHouse avant d'intégrer les images
 ![score lighthouse pré images](/preuves/lighthouse-preImages.png "score parfait")
 
 Et maintenant le score apres ajout d'images :
 ![score lighthouse post images](/preuves/lighthouse-postImages.png "score parfait").
+
+---
+
+## Analyse du bundle
+
+Le projet est compilé avec **Turbopack**. Pour inspecter la taille des bundles client et serveur, on utilise l'analyseur natif de Turbopack (disponible depuis Next.js 16.1) :
+
+```bash
+# Vue interactive : treemap par route + chaînes d'import (ouvre http://localhost:4000)
+pnpm next experimental-analyze
+
+# Export statique, pour partager ou comparer une optimisation avant/après
+pnpm next experimental-analyze --output   # écrit dans .next/diagnostics/analyze
+```
+
+> Le plugin `@next/bundle-analyzer` (`ANALYZE=true pnpm build`) n'est pas compatible avec les builds Turbopack ; il faut forcer le mode webpack avec `next build --webpack` pour l'utiliser.
+
+### Résultats
+
+Relevés via `pnpm next experimental-analyze` (vue « All Route Modules », toutes routes confondues) :
+
+| Bundle     | Compressé (estimé) | Non compressé | Modules |
+| ---------- | ------------------ | ------------- | ------- |
+| **Client** | 341 Ko             | 885 Ko        | 252     |
+| **Server** | 301 Ko             | 753 Ko        | 374     |

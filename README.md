@@ -104,3 +104,13 @@ Relevés via `pnpm next experimental-analyze` (vue « All Route Modules », tout
 | ---------- | ------------------ | ------------- | ------- |
 | **Client** | 341 Ko             | 885 Ko        | 252     |
 | **Server** | 301 Ko             | 753 Ko        | 374     |
+
+### Captures
+
+Vue **Client** (ce qui est téléchargé par le navigateur) :
+
+![Analyse du bundle — Client](/preuves/bundle-analyzer-client.png "Bundle client — 341 Ko compressé estimé, 252 modules")
+
+Vue **Server** (exécuté côté serveur, non envoyé au navigateur) :
+
+![Analyse du bundle — Server](/preuves/bundle-analyzer-server.png "Bundle server — 301 Ko compressé estimé, 374 modules")

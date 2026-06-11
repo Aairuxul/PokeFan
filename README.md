@@ -20,7 +20,60 @@ Application web qui permet la liste des pokemons et de leur types.
 
 ---
 
-## Getting started
+## Architecture
+
+Notre architecture se base sur celle recommandée pour Next.js 16 et l’App Router.
+
+### Structure principale
+
+- `src/app/` : routes et pages de l’application.
+- `src/app/api/` : API routes côté serveur.
+- `src/components/` : composants UI réutilisables.
+- `src/lib/` : logique métier et store interne.
+- `src/services/` : intégration avec l’API PokéAPI.
+
+### Flux de données
+
+- `src/services/pokemonAPI.ts` interroge la PokéAPI et gère l’ISR.
+- `src/lib/users-store.ts` stocke les utilisateurs en mémoire pour la phase 1.
+- `src/lib/validation.ts` contient la validation Zod des formulaires.
+
+### Routes clés
+
+- `/` : page d’accueil avec navigation principale.
+- `/pokemonTypes` : liste des types de Pokémon.
+- `/pokemonTypes/[id]` : détail d’un type Pokémon.
+- `/register` : formulaire d’inscription avec Server Action.
+- `/users` : liste des utilisateurs revalidée après inscription.
+
+### API backend
+
+- `src/app/api/auth/[...nextauth]/route.ts` : authentification GitHub avec NextAuth.
+- `src/app/api/pokemonType/route.ts` : route `GET`/`POST` pour les types Pokémon.
+
+### Composants et layout
+
+- `src/app/layout.tsx` : layout racine et imports de polices.
+- `src/app/providers.tsx` : providers partagés.
+- `src/components/` : listes, détails, skeletons, formulaire.
+
+---
+## Choix techniques
+- Next car c'est le but du cours
+- On a choisi d'utiliser les next/font, next/images, Suspens à des fins d'optimisations (demandé aussi)
+- Système de cache qui stocke aussi les infos qui devraient être en backend. C'est un petit projet donc pas besoin de faire un backend. Rien n'est stocké si ce n'est les cookies de sessions et données utiles à l'utilisation du site.
+- 
+---
+
+### Cache et revalidation
+
+- ISR 24 h pour les types Pokémon (`revalidate: 86400`).
+- tags de cache : `pokemon-types`, `pokemon-type-${id}`.
+- revalidation on-demand après création d’un utilisateur.
+
+---
+
+## Installation
 
 > Ce projet utilise **pnpm**. Avec [Corepack](https://nodejs.org/api/corepack.html) (`corepack enable`), la version déclarée dans `package.json` est utilisée automatiquement.
 

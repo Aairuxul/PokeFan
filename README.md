@@ -108,6 +108,8 @@ Le projet utilise le modèle de cache « classique » de Next.js 16 (sans le fla
 | Liste des types — `getPokemonTypes()`   | `/pokemonTypes`      | ISR (cache + revalidation temporelle) | `86400` s (24 h)     | `pokemon-types`                       | Les types Pokémon sont quasi immuables ; on sert le cache et on rafraîchit une fois par jour. |
 | Détail d'un type — `getPokemonType(id)` | `/pokemonTypes/[id]` | ISR                                   | `86400` s (24 h)     | `pokemon-types`, `pokemon-type-${id}` | Même donnée stable ; un tag par `id` autorise une invalidation ciblée.                        |
 | Liste des utilisateurs                  | `/users`             | Statique + revalidation on-demand     | —                    | —                                     | Rendue statiquement puis invalidée après chaque inscription.                                  |
+| Connexion | `/api/auth/signin` | cookie de session | 6h | `login` | On veut pouvoir garder authentifié l'utilisateur lors de ses visites sur le site. |
+
 
 ### Revalidation
 

@@ -219,4 +219,4 @@ const session = await auth()
 - Migrer vers PostgreSQL + Prisma
 - Ajouter rôles/permissions
 - Tester mobile en profondeur (ne pas regarder le lightHouse)
-- Design system plus complet
+- Design systeme plus complet
